@@ -1,0 +1,479 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1600,
+  "model": {
+    "culture": "en-US",
+    "discourageImplicitMeasures": true,
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/localhost;BD_SegurosNic_DW",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "localhost",
+            "database": "BD_SegurosNic_DW"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "UsernamePassword",
+          "kind": "SQL",
+          "path": "localhost;BD_SegurosNic_DW",
+          "Username": "dbkaty",
+          "EncryptConnection": false
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "Agentes",
+        "columns": [
+          {
+            "name": "AgenteKey",
+            "dataType": "int64",
+            "sourceColumn": "AgenteKey"
+          },
+          {
+            "name": "Nombre Agente",
+            "dataType": "string",
+            "sourceColumn": "Nombre Agente"
+          },
+          {
+            "name": "Apellido Agente",
+            "dataType": "string",
+            "sourceColumn": "Apellido Agente"
+          },
+          {
+            "name": "Email Agente",
+            "dataType": "string",
+            "sourceColumn": "Email Agente"
+          },
+          {
+            "name": "Telefono Agente",
+            "dataType": "string",
+            "sourceColumn": "Telefono Agente"
+          },
+          {
+            "name": "Direccion Agente",
+            "dataType": "string",
+            "sourceColumn": "Direccion Agente"
+          },
+          {
+            "name": "Ciudad Agente",
+            "dataType": "string",
+            "sourceColumn": "Ciudad Agente"
+          },
+          {
+            "name": "Estado Agente",
+            "dataType": "string",
+            "sourceColumn": "Estado Agente"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;BD_SegurosNic_DW\",",
+                "    dbo_Agentes = Source{[Schema=\"dbo\",Item=\"Agentes\"]}[Data]",
+                "in",
+                "    dbo_Agentes"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Clientes",
+        "columns": [
+          {
+            "name": "ClienteKey",
+            "dataType": "int64",
+            "sourceColumn": "ClienteKey"
+          },
+          {
+            "name": "Nombre Cliente",
+            "dataType": "string",
+            "sourceColumn": "Nombre Cliente"
+          },
+          {
+            "name": "Apellido Cliente",
+            "dataType": "string",
+            "sourceColumn": "Apellido Cliente"
+          },
+          {
+            "name": "Email Cliente",
+            "dataType": "string",
+            "sourceColumn": "Email Cliente"
+          },
+          {
+            "name": "Telefono Cliente",
+            "dataType": "string",
+            "sourceColumn": "Telefono Cliente"
+          },
+          {
+            "name": "Direccion Cliente",
+            "dataType": "string",
+            "sourceColumn": "Direccion Cliente"
+          },
+          {
+            "name": "Ciudad Cliente",
+            "dataType": "string",
+            "sourceColumn": "Ciudad Cliente"
+          },
+          {
+            "name": "Estado Cliente",
+            "dataType": "string",
+            "sourceColumn": "Estado Cliente"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;BD_SegurosNic_DW\",",
+                "    dbo_Clientes = Source{[Schema=\"dbo\",Item=\"Clientes\"]}[Data]",
+                "in",
+                "    dbo_Clientes"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Polizas",
+        "columns": [
+          {
+            "name": "PolizaKey",
+            "dataType": "int64",
+            "sourceColumn": "PolizaKey"
+          },
+          {
+            "name": "ClienteID",
+            "dataType": "int64",
+            "sourceColumn": "ClienteID"
+          },
+          {
+            "name": "Nombre Polizas",
+            "dataType": "string",
+            "sourceColumn": "Nombre Polizas"
+          },
+          {
+            "name": "Descripcion Poliza",
+            "dataType": "string",
+            "sourceColumn": "Descripcion Poliza"
+          },
+          {
+            "name": "Fecha Inicio Poliza",
+            "dataType": "dateTime",
+            "sourceColumn": "Fecha Inicio Poliza"
+          },
+          {
+            "name": "Fecha Expiracion Poliza",
+            "dataType": "dateTime",
+            "sourceColumn": "Fecha Expiracion Poliza"
+          },
+          {
+            "name": "Montos Asegurados",
+            "dataType": "double",
+            "sourceColumn": "Montos Asegurados"
+          },
+          {
+            "name": "Prima Anual Poliza",
+            "dataType": "double",
+            "sourceColumn": "Prima Anual Poliza"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;BD_SegurosNic_DW\",",
+                "    dbo_Polizas = Source{[Schema=\"dbo\",Item=\"Polizas\"]}[Data]",
+                "in",
+                "    dbo_Polizas"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Productos",
+        "columns": [
+          {
+            "name": "ProductoKey",
+            "dataType": "int64",
+            "sourceColumn": "ProductoKey"
+          },
+          {
+            "name": "Nombre Producto",
+            "dataType": "string",
+            "sourceColumn": "Nombre Producto"
+          },
+          {
+            "name": "Descripcion Producto",
+            "dataType": "string",
+            "sourceColumn": "Descripcion Producto"
+          },
+          {
+            "name": "Fecha Vigencia",
+            "dataType": "dateTime",
+            "sourceColumn": "Fecha Vigencia"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;BD_SegurosNic_DW\",",
+                "    dbo_Productos = Source{[Schema=\"dbo\",Item=\"Productos\"]}[Data]",
+                "in",
+                "    dbo_Productos"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Ventas",
+        "columns": [
+          {
+            "name": "VentaKey",
+            "dataType": "int64",
+            "sourceColumn": "VentaKey"
+          },
+          {
+            "name": "AgenteID",
+            "dataType": "int64",
+            "sourceColumn": "AgenteID"
+          },
+          {
+            "name": "PolizaID",
+            "dataType": "int64",
+            "sourceColumn": "PolizaID"
+          },
+          {
+            "name": "ClienteID",
+            "dataType": "int64",
+            "sourceColumn": "ClienteID"
+          },
+          {
+            "name": "ProductoID",
+            "dataType": "int64",
+            "sourceColumn": "ProductoID"
+          },
+          {
+            "name": "Fecha Venta",
+            "dataType": "dateTime",
+            "sourceColumn": "Fecha Venta"
+          },
+          {
+            "name": "Cantidad Venta",
+            "dataType": "int64",
+            "sourceColumn": "Cantidad Venta"
+          },
+          {
+            "name": "Precio Venta",
+            "dataType": "double",
+            "sourceColumn": "Precio Venta"
+          },
+          {
+            "name": "Total Venta",
+            "dataType": "double",
+            "sourceColumn": "Total Venta"
+          },
+          {
+            "name": "Monto Comision",
+            "dataType": "double",
+            "sourceColumn": "Monto Comision"
+          },
+          {
+            "name": "DateID",
+            "dataType": "int64",
+            "sourceColumn": "DateKey"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;BD_SegurosNic_DW\",",
+                "    dbo_Ventas = Source{[Schema=\"dbo\",Item=\"Ventas\"]}[Data]",
+                "in",
+                "    dbo_Ventas"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Cantidad Total",
+            "expression": "SUM([Cantidad Venta])"
+          },
+          {
+            "name": "Precio Total",
+            "expression": "SUM([Precio Venta])"
+          },
+          {
+            "name": "Total Ventas",
+            "expression": "SUM([Total Venta])"
+          },
+          {
+            "name": "Monto Comision Total",
+            "expression": "SUM([Monto Comision])"
+          }
+        ]
+      },
+      {
+        "name": "Dim_Date",
+        "columns": [
+          {
+            "name": "DateKey",
+            "dataType": "int64",
+            "sourceColumn": "DateKey"
+          },
+          {
+            "name": "FullDate",
+            "dataType": "dateTime",
+            "sourceColumn": "FullDate"
+          },
+          {
+            "name": "Day",
+            "dataType": "int64",
+            "sourceColumn": "Day"
+          },
+          {
+            "name": "Month",
+            "dataType": "int64",
+            "sourceColumn": "Month"
+          },
+          {
+            "name": "MonthName",
+            "dataType": "string",
+            "sourceColumn": "MonthName"
+          },
+          {
+            "name": "Year",
+            "dataType": "int64",
+            "sourceColumn": "Year"
+          },
+          {
+            "name": "Quarter",
+            "dataType": "int64",
+            "sourceColumn": "Quarter"
+          },
+          {
+            "name": "WeekOfYear",
+            "dataType": "int64",
+            "sourceColumn": "WeekOfYear"
+          },
+          {
+            "name": "DayOfWeek",
+            "dataType": "int64",
+            "sourceColumn": "DayOfWeek"
+          },
+          {
+            "name": "DayName",
+            "dataType": "string",
+            "sourceColumn": "DayName"
+          },
+          {
+            "name": "ValidFrom",
+            "dataType": "dateTime",
+            "sourceColumn": "ValidFrom"
+          },
+          {
+            "name": "ValidTo",
+            "dataType": "dateTime",
+            "sourceColumn": "ValidTo"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;BD_SegurosNic_DW\",",
+                "    dbo_Dim_Date = Source{[Schema=\"dbo\",Item=\"Dim_Date\"]}[Data]",
+                "in",
+                "    dbo_Dim_Date"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "d01bcf49-f48f-44d2-b109-9f54cc8866ae",
+        "fromCardinality": "one",
+        "fromTable": "Agentes",
+        "fromColumn": "AgenteKey",
+        "toTable": "Ventas",
+        "toColumn": "AgenteID",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "5b7e3df2-a1ad-4e5e-ab70-641812149bd2",
+        "fromCardinality": "one",
+        "fromTable": "Clientes",
+        "fromColumn": "ClienteKey",
+        "toTable": "Ventas",
+        "toColumn": "ClienteID",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "8ae8010d-17c4-4e87-b738-08850b0e529d",
+        "fromTable": "Ventas",
+        "fromColumn": "PolizaID",
+        "toTable": "Polizas",
+        "toColumn": "PolizaKey"
+      },
+      {
+        "name": "8e890699-87e5-49cc-a6da-634e9c3c2bc4",
+        "fromTable": "Ventas",
+        "fromColumn": "ProductoID",
+        "toTable": "Productos",
+        "toColumn": "ProductoKey"
+      },
+      {
+        "name": "1aae3558-7778-41a9-93c0-cf76ca78296d",
+        "fromTable": "Ventas",
+        "fromColumn": "DateID",
+        "toTable": "Dim_Date",
+        "toColumn": "DateKey"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "700"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
